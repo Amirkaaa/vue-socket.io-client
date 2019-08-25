@@ -11,16 +11,16 @@ export default {
       for (const namespace of Object.keys(this.$vueSocketIo)) {
         this.sockets[namespace] = {
           subscribe: (event, callback) => {
-            this.$vueSocketIo[namespace].emitter.addListener(event, callback, this);
+            this.$vueSocketIo[namespace].emitter.addEventListener(event, callback, this);
           },
           unsubscribe: (event) => {
-            this.$vueSocketIo[namespace].emitter.removeListener(event, this);
+            this.$vueSocketIo[namespace].emitter.removeEventListener(event, this);
           }
         }
       }
     } else {
-      this.$vueSocketIo.emitter.addListener(event, callback, this);
-      this.$vueSocketIo.emitter.removeListener(event, this);
+      this.$vueSocketIo.emitter.addEventListener(event, callback, this);
+      this.$vueSocketIo.emitter.removeEventListener(event, this);
     }
   },
 
@@ -37,7 +37,7 @@ export default {
             Object.keys(this.$options.sockets[namespace]).forEach(event => {
 
               if (event !== 'subscribe' && event !== 'unsubscribe') {
-                this.$vueSocketIo[namespace].emitter.addListener(event, this.$options.sockets[namespace][event], this);
+                this.$vueSocketIo[namespace].emitter.addEventListener(event, this.$options.sockets[namespace][event], this);
               }
 
             });
@@ -47,7 +47,7 @@ export default {
         Object.keys(this.$options.sockets).forEach(event => {
 
           if (event !== 'subscribe' && event !== 'unsubscribe') {
-            this.$vueSocketIo.emitter.addListener(event, this.$options.sockets[event], this);
+            this.$vueSocketIo.emitter.addEventListener(event, this.$options.sockets[event], this);
           }
 
         });
@@ -57,7 +57,7 @@ export default {
   },
 
   /**
-   * unsubscribe when component unmounting
+   * Unsubscribe when component unmount
    */
   beforeDestroy() {
 
@@ -68,7 +68,7 @@ export default {
           if (this.$options.sockets[namespace]) {
             Object.keys(this.$options.sockets[namespace]).forEach(event => {
 
-              this.$vueSocketIo[namespace].emitter.removeListener(event, this);
+              this.$vueSocketIo[namespace].emitter.removeEventListener(event, this);
 
             });
           }
@@ -76,7 +76,7 @@ export default {
       } else {
         Object.keys(this.$options.sockets).forEach(event => {
 
-          this.$vueSocketIo.emitter.removeListener(event, this);
+          this.$vueSocketIo.emitter.removeEventListener(event, this);
 
         });
       }
