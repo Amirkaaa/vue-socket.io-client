@@ -1,0 +1,33 @@
+{
+  "name": "vue-socket-io",
+  "version": "0.0.1",
+  "description": "A socket.io plugin for Vue and Vuex",
+  "homepage": "https://github.com/Amirkaaa/vue-socket-io",
+  "main": "dist/vue-socket-io.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Amirkaaa/vue-socket-io.git"
+  },
+  "keywords": [
+    "vue",
+    "vuex",
+    "websocket",
+    "socket.io"
+  ],
+  "files": [
+    "dist",
+    "src"
+  ],
+  "author": "Amir Shabanov <amirshabanov97@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Amirkaaa/vue-socket-io/issues"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.5.5",
+    "@babel/core": "^7.5.5"
+  }
+}
