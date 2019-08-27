@@ -1,29 +1,25 @@
 export default class VueSocketIoListener {
-
-  /**
-   * socket.io-client reserved event keywords
-   * @type {string[]}
-   */
-  static staticEvents = [
-    'connect',
-    'error',
-    'disconnect',
-    'reconnect',
-    'reconnect_attempt',
-    'reconnecting',
-    'reconnect_error',
-    'reconnect_failed',
-    'connect_error',
-    'connect_timeout',
-    'connecting',
-    'ping',
-    'pong'
-  ];
-
   constructor(io, emitter) {
     this.io = io;
     this.register();
     this.emitter = emitter;
+
+    // socket.io-client reserved event keywords
+    this.staticEvents = [
+      'connect',
+      'error',
+      'disconnect',
+      'reconnect',
+      'reconnect_attempt',
+      'reconnecting',
+      'reconnect_error',
+      'reconnect_failed',
+      'connect_error',
+      'connect_timeout',
+      'connecting',
+      'ping',
+      'pong'
+    ];
   }
 
   /**
@@ -37,7 +33,7 @@ export default class VueSocketIoListener {
 
       this.onEvent(event, args);
 
-      VueSocketIoListener.staticEvents.forEach(event => this.io.on(event, args => this.onEvent(event, args)))
+      this.staticEvents.forEach(event => this.io.on(event, args => this.onEvent(event, args)))
     }
   }
 
