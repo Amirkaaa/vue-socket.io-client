@@ -5,7 +5,7 @@ module.exports = {
   mode: 'production',
   entry: ['./src/index.js'],
   output: {
-    library: pkg.name.split('/')[1],
+    library: 'VueSocketIoClient',
     libraryTarget: "umd",
     libraryExport: "default",
     filename: pkg.name.split('/')[1] + '.js',
@@ -21,7 +21,11 @@ module.exports = {
           options: {
             cacheDirectory: true,
             presets: ['@babel/preset-env'],
-            plugins: ['@babel/transform-runtime']
+            plugins: [
+                '@babel/transform-runtime',
+                '@babel/plugin-proposal-class-properties',
+                '@babel/plugin-transform-classes'
+            ]
           }
         }
       }
