@@ -5,10 +5,10 @@ module.exports = {
   mode: 'production',
   entry: ['./src/index.js'],
   output: {
-    library: 'VueSocketIoClient',
+    library: pkg.name,
     libraryTarget: "umd",
     libraryExport: "default",
-    filename: pkg.name.split('/')[1] + '.js',
+    filename: pkg.name + '.js',
     path: path.resolve('dist')
   },
   module: {
