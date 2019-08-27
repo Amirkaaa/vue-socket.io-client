@@ -1,5 +1,5 @@
 {
-  "name": "vue-socket-io",
+  "name": "@amirkaaa/vue-socket.io-client",
   "version": "0.0.2",
   "description": "A socket.io plugin for Vue and Vuex",
   "homepage": "https://github.com/Amirkaaa/vue-socket-io",
@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Amirkaaa/vue-socket-io.git"
+    "url": "git+https://github.com/Amirkaaa/vue-socket.io-client.git"
   },
   "keywords": [
     "vue",
@@ -24,7 +24,7 @@
   "author": "Amir Shabanov <amirshabanov97@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Amirkaaa/vue-socket-io/issues"
+    "url": "https://github.com/Amirkaaa/vue-socket.io-client/issues"
   },
   "devDependencies": {
     "@babel/cli": "^7.5.5",
