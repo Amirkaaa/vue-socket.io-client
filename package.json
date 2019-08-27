@@ -1,6 +1,6 @@
 {
   "name": "@amirkaaa/vue-socket.io-client",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "A socket.io plugin for Vue and Vuex",
   "homepage": "https://github.com/Amirkaaa/vue-socket-io",
   "main": "dist/vue-socket.io-client.js",
