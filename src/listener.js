@@ -1,4 +1,4 @@
-export default class VueSocketIoListener {
+export default class VueSocketIoClientListener {
   constructor(io, emitter) {
     this.io = io;
     this.register();

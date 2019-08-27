@@ -1,7 +1,7 @@
 /**
  * shitty logger class
  */
-export default new class VueSocketIoLogger {
+export default new class VueSocketIoClientLogger {
 
   constructor() {
     this.debug = false;

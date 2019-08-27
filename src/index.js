@@ -4,7 +4,7 @@ import Listener from "./listener";
 import Emitter from "./emitter";
 import SocketIO from 'socket.io-client';
 
-export default class VueSocketIo {
+export default class VueSocketIoClient {
   constructor({ connection, vuex, debug, options }) {
     Logger.debug = debug;
     this.io = this.connect(connection, options);
@@ -20,14 +20,14 @@ export default class VueSocketIo {
     if (this.useConnectionNamespace) {
       if (typeof Vue.prototype.$socket === 'object') {
         Vue.prototype.$socket = { ...Vue.prototype.$socket, [namespace]: this.io };
-        Vue.prototype.$vueSocketIo = { ...Vue.prototype.$vueSocketIo, [namespace]: this };
+        Vue.prototype.$VueSocketIoClient = { ...Vue.prototype.$VueSocketIoClient, [namespace]: this };
       } else {
         Vue.prototype.$socket = { [namespace]: this.io };
-        Vue.prototype.$vueSocketIo = { [namespace]: this };
+        Vue.prototype.$VueSocketIoClient = { [namespace]: this };
       }
     } else {
       Vue.prototype.$socket = this.io;
-      Vue.prototype.$vueSocketIo = this;
+      Vue.prototype.$VueSocketIoClient = this;
     }
 
     Vue.mixin(Mixin);

@@ -7,20 +7,20 @@ export default {
 
     if (!this.sockets) this.sockets = {};
 
-    if (typeof this.$vueSocketIo === 'object') {
-      for (const namespace of Object.keys(this.$vueSocketIo)) {
+    if (typeof this.$VueSocketIoClient === 'object') {
+      for (const namespace of Object.keys(this.$VueSocketIoClient)) {
         this.sockets[namespace] = {
           subscribe: (event, callback) => {
-            this.$vueSocketIo[namespace].emitter.addEventListener(event, callback, this);
+            this.$VueSocketIoClient[namespace].emitter.addEventListener(event, callback, this);
           },
           unsubscribe: (event) => {
-            this.$vueSocketIo[namespace].emitter.removeEventListener(event, this);
+            this.$VueSocketIoClient[namespace].emitter.removeEventListener(event, this);
           }
         }
       }
     } else {
-      this.$vueSocketIo.emitter.addEventListener(event, callback, this);
-      this.$vueSocketIo.emitter.removeEventListener(event, this);
+      this.$VueSocketIoClient.emitter.addEventListener(event, callback, this);
+      this.$VueSocketIoClient.emitter.removeEventListener(event, this);
     }
   },
 
@@ -31,13 +31,13 @@ export default {
 
     if (this.$options.sockets) {
 
-      if (typeof this.$vueSocketIo === 'object') {
-        for (const namespace of Object.keys(this.$vueSocketIo)) {
+      if (typeof this.$VueSocketIoClient === 'object') {
+        for (const namespace of Object.keys(this.$VueSocketIoClient)) {
           if (this.$options.sockets[namespace]) {
             Object.keys(this.$options.sockets[namespace]).forEach(event => {
 
               if (event !== 'subscribe' && event !== 'unsubscribe') {
-                this.$vueSocketIo[namespace].emitter.addEventListener(event, this.$options.sockets[namespace][event], this);
+                this.$VueSocketIoClient[namespace].emitter.addEventListener(event, this.$options.sockets[namespace][event], this);
               }
 
             });
@@ -47,7 +47,7 @@ export default {
         Object.keys(this.$options.sockets).forEach(event => {
 
           if (event !== 'subscribe' && event !== 'unsubscribe') {
-            this.$vueSocketIo.emitter.addEventListener(event, this.$options.sockets[event], this);
+            this.$VueSocketIoClient.emitter.addEventListener(event, this.$options.sockets[event], this);
           }
 
         });
@@ -63,12 +63,12 @@ export default {
 
     if (this.$options.sockets) {
 
-      if (typeof this.$vueSocketIo === 'object') {
-        for (const namespace of Object.keys(this.$vueSocketIo)) {
+      if (typeof this.$VueSocketIoClient === 'object') {
+        for (const namespace of Object.keys(this.$VueSocketIoClient)) {
           if (this.$options.sockets[namespace]) {
             Object.keys(this.$options.sockets[namespace]).forEach(event => {
 
-              this.$vueSocketIo[namespace].emitter.removeEventListener(event, this);
+              this.$VueSocketIoClient[namespace].emitter.removeEventListener(event, this);
 
             });
           }
@@ -76,7 +76,7 @@ export default {
       } else {
         Object.keys(this.$options.sockets).forEach(event => {
 
-          this.$vueSocketIo.emitter.removeEventListener(event, this);
+          this.$VueSocketIoClient.emitter.removeEventListener(event, this);
 
         });
       }

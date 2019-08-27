@@ -3,7 +3,7 @@
   "version": "0.0.2",
   "description": "A socket.io plugin for Vue and Vuex",
   "homepage": "https://github.com/Amirkaaa/vue-socket-io",
-  "main": "dist/vue-socket-io.js",
+  "main": "dist/vue-socket.io-client.js",
   "scripts": {
     "build": "webpack --mode=production --progress --hide-modules webpack.config.js"
   },

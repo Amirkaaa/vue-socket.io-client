@@ -5,10 +5,10 @@ module.exports = {
   mode: 'production',
   entry: ['./src/index.js'],
   output: {
-    library: 'vue-socket-io',
+    library: pkg.name.split('/')[1],
     libraryTarget: "umd",
     libraryExport: "default",
-    filename: 'vue-socket-io.js',
+    filename: pkg.name.split('/')[1] + '.js',
     path: path.resolve('dist')
   },
   module: {
