@@ -5,7 +5,7 @@
   "homepage": "https://github.com/Amirkaaa/vue-socket-io",
   "main": "dist/vue-socket-io.js",
   "scripts": {
-    "build": "webpack --mode=production --progress --hide-modules webpack.config.js.js"
+    "build": "webpack --mode=production --progress --hide-modules webpack.config.js"
   },
   "repository": {
     "type": "git",
